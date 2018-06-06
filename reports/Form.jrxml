@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Form" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dd8f274f-10dc-473b-b278-c508188b134f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="126"/>
+	<parameter name="certificateId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT `certificate_id`, no_mcg AS 'No MCG' , `cdate` AS 'Date' , 
+`property_no` AS 'Property No' , mohalla AS 'Mohalla' , measure AS 'Measure' 
+, tax AS 'Tax',`name` AS 'Name' ,
+father_name AS 'Father' , `caste` AS caste , 
+north AS 'North' , south AS 'South' , east AS 'East' , west AS 'West' 
+ FROM `certificate` 
+WHERE `certificate_type_id` = 'Boundaries Certificate' AND active = 1 AND certificate_id = $P{certificateId};]]>
+	</queryString>
+	<field name="certificate_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No MCG" class="java.lang.String"/>
+	<field name="Date" class="java.sql.Date"/>
+	<field name="Property No" class="java.lang.String"/>
+	<field name="Mohalla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Measure" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tax" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Father" class="java.lang.String"/>
+	<field name="caste" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="North" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="South" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="East" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="West" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="802">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="802" uuid="0fd22b23-db62-403f-8716-5fb3a530f707"/>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="9" y="10" width="537" height="781" uuid="a366c588-378c-440b-a9e0-339c8c018973"/>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="5" y="9" width="545" height="47" uuid="d33b8f9c-0002-4406-ae38-2cda749fa014"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="30" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[OFFICE OF THE CHAIRMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="55" width="545" height="44" uuid="7599b627-cc96-4e47-9d75-d4dc1a60f585"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="30" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[MUNICIPAL COMMITTEE GAMBAT]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="9" y="23" width="192" height="20" uuid="0eeb1b9f-bf1f-4f27-8561-bb6c07cbb9ca"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[No./MCG:_________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="384" y="21" width="160" height="22" uuid="2c979ab5-e56b-427a-ae18-eed24f264bd2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<text><![CDATA[Date:_________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="23" width="100" height="20" uuid="7e3d3ca9-8258-4bc2-a5a8-16d2ac83da11"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{No MCG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="23" width="100" height="20" uuid="1f46a63c-af53-433f-9d57-b23f5312125a"/>
+				<textElement>
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="6" y="0" width="543" height="53" uuid="439031a5-7f27-4c5e-850e-8026607d945c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="34" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Boundaries Certificate]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="452" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="2" width="541" height="24" uuid="17e39232-50b1-41bf-8184-286918dd3669"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[This is to Certify that the property bearing No:___________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="26" width="535" height="24" uuid="6891d0d3-a4a4-46f9-acd3-bf86c02da41f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Consisting of one situated in Mohallah:________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="50" width="535" height="24" uuid="a77199b6-d036-418e-b721-e2350c55a9ee"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[House/Plot/Ware/Otaque/Shop Measuring ______Sq:Ft in Entered in tax_____]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="74" width="534" height="23" uuid="dd2d4ced-d4d7-4eb4-871d-7a024d9f15f8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[Property register in the name of Mr.___________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="97" width="533" height="24" uuid="6e00b8c2-e632-4e82-a886-80894a57edff"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[_______________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="121" width="536" height="24" uuid="fc11c9e6-3b70-459f-a31d-c2a706a45bfa"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[S/o.__________________________________ By caste __________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="145" width="536" height="24" uuid="0c0e1720-93e9-42a1-86c4-bf0a274c909a"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[The Boundaries of said property are as under, there is no dispute over the]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="169" width="536" height="33" uuid="94c197a7-1829-4b79-b8e7-9b60fca8bba6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="15" isItalic="true"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[above property no there is any case pending in the court of law.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="202" width="535" height="29" uuid="e9de4309-4a96-4d23-bc9b-3d8d17c4348d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="20" isBold="true" isItalic="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Boundaries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="262" width="227" height="23" uuid="15735aa1-ddd4-44d4-b6a5-b85e9966dfd5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NORTH :- _________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="285" width="227" height="23" uuid="e3924813-0c12-4b12-9300-8ce8ed6ce99d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOUTH:-  _________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="308" width="227" height="23" uuid="ef205a34-e5f1-4bb8-9e14-ca128504cc4d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EAST:-     _________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="331" width="227" height="23" uuid="0c08ebe4-238c-4c61-a106-19315c5fe25c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[WEST:-    _________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="262" width="22" height="23" uuid="b393d4d6-79ca-48e2-9b3c-836e48346b10"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="331" width="22" height="23" uuid="929de996-a0c7-4bf7-b660-36f61a1abd84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(4)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="308" width="22" height="23" uuid="198c0d5b-ea66-4cbc-9191-6284ab39251d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(3)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="285" width="22" height="23" uuid="55278665-2927-4502-a5e7-76f696a9058d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(2)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="408" width="181" height="20" uuid="73c49e67-e781-41d4-b5f3-63e29bc03c0c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[MUNICIPAL COMMITTEE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="389" width="181" height="20" uuid="d2657c02-17f5-4ba2-b986-a810d68b8d79"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[CHAIRMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="427" width="181" height="20" uuid="8ea3a8fd-90e5-4a8c-8961-7936c33059c5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[GAMBAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="428" width="287" height="20" uuid="f7c3c5d0-8a49-4156-bf98-f5606bb8574b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isItalic="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[3.  The Certificate is not the Property Certificate.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="409" width="286" height="20" uuid="5782c17c-80d5-4bd1-affd-1f550009b965"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isItalic="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[2.  The Applicant Responsible of above Property.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="390" width="287" height="20" uuid="ca4a5373-289a-4e1d-9315-6952fb4ba79f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="12" isItalic="false"/>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<text><![CDATA[1.  The Applicant Possess the above Property.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="320" y="0" width="196" height="20" uuid="0d378e79-34fd-4afd-b823-e3fb0e24bac5"/>
+				<textElement>
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Property No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="26" width="232" height="20" uuid="3bb3c268-9d2a-474d-ba3b-517519cad20b"/>
+				<textElement>
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mohalla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="293" y="50" width="36" height="20" uuid="3b8b9d55-3913-4a28-ab8c-519007a93946"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Measure}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="489" y="54" width="45" height="20" uuid="63c59d83-222f-466a-9516-54970142c387"/>
+				<textElement textAlignment="Right">
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="74" width="256" height="20" uuid="0458cc84-d5c2-423c-a2b2-99b892dd4133"/>
+				<textElement>
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="46" y="121" width="257" height="20" uuid="7d8306c6-822b-4476-9e01-2b8edcdfb052"/>
+				<textElement>
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Father}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="379" y="121" width="137" height="20" uuid="285c1880-5af2-4ca4-a3d4-76ded4001602"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="15"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caste}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="265" width="104" height="20" uuid="2ba32683-b6e1-4cc4-8051-2e194ea13f18"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{North}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="288" width="104" height="20" uuid="b8fb3951-bd38-42aa-9497-232a0a802a79"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{South}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="311" width="104" height="20" uuid="fd82d50f-cb2e-421e-869d-4e5d6be16ad3"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{East}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="331" width="104" height="20" uuid="f078445d-3521-45e0-94d0-0efc55942e90"/>
+				<textElement textAlignment="Center">
+					<font fontName="Century Gothic" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{West}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

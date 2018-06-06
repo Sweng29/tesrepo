@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="govt" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f118f8e1-606e-43cd-b7d8-149ed0a3ce41">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="71"/>
+	<parameter name="certificateId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT `certificate_id`, no_mcg AS 'No MCG' , DATE(`cdate`) AS 'Date' , 
+`name` AS 'Name' ,
+father_name AS 'Father Name' , `caste` AS Caste ,house_no,  mohalla AS 'Mohalla' , 
+`nic_no` AS 'Cnic No' , `recomended_by` AS 'Recomended By'
+FROM `certificate` 
+WHERE `certificate_type_id` = 'Residence Certificate' AND active = 1 
+AND certificate_id = $P{certificateId}]]>
+	</queryString>
+	<field name="certificate_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No MCG" class="java.lang.String"/>
+	<field name="Date" class="java.sql.Date"/>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Father Name" class="java.lang.String"/>
+	<field name="Caste" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="house_no" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Mohalla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cnic No" class="java.lang.String"/>
+	<field name="Recomended By" class="java.lang.String"/>
+	<background>
+		<band height="802" splitType="Stretch">
+			<rectangle radius="0">
+				<reportElement key="rectangle-2" x="0" y="0" width="555" height="802" uuid="25ee1861-dfc1-4baf-918e-23034051ecd0"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="0">
+				<reportElement key="rectangle-2" x="5" y="5" width="545" height="792" uuid="25ee1861-dfc1-4baf-918e-23034051ecd0"/>
+				<graphicElement>
+					<pen lineWidth="1.5" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="85" splitType="Stretch">
+			<staticText>
+				<reportElement x="17" y="9" width="522" height="46" uuid="30bdfbee-73f2-4a31-a31c-6c3e8b414a34"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OFFICE OF MUNCIPAL COMMITEE GAMBAT]]></text>
+			</staticText>
+			<line>
+				<reportElement x="21" y="38" width="509" height="1" uuid="7e478dec-c5a6-48cc-ac33-a43d1599c632"/>
+			</line>
+			<staticText>
+				<reportElement x="17" y="65" width="100" height="20" uuid="3a423567-4bcb-47e9-a7ae-1cf426c618c0"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="438" y="65" width="100" height="20" uuid="8c669aab-1b3f-416e-b776-f917ae9cb44d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Dated:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="43" y="65" width="100" height="20" uuid="9c20f8e3-412f-4345-ac8b-6d32a4f08960"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{No MCG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="479" y="65" width="71" height="20" uuid="0a8b30b5-0594-4144-bfa2-485f065f1f21"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="100" splitType="Stretch">
+			<staticText>
+				<reportElement x="187" y="28" width="195" height="38" uuid="beb16df4-2fd0-470b-9314-0f4fe404529b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RESIDENCE CERTIFICATE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="143" y="58" width="286" height="1" uuid="6ebe62c1-6bcc-43e5-905c-d9852360522b"/>
+			</line>
+			<line>
+				<reportElement x="138" y="62" width="297" height="1" uuid="58dd2dc2-6997-4ff4-aa7f-8f55dcc37d71"/>
+			</line>
+			<line>
+				<reportElement x="147" y="54" width="40" height="1" uuid="59d687e7-6c14-43f8-b447-e5e9bcb59956"/>
+			</line>
+			<line>
+				<reportElement x="382" y="54" width="42" height="1" uuid="ea5992ae-01fe-4d8d-ba46-46d3a00110e3"/>
+			</line>
+			<line>
+				<reportElement x="152" y="50" width="35" height="1" uuid="e2a54fa1-7362-4ec1-bbc9-d4712c583853"/>
+			</line>
+			<line>
+				<reportElement x="382" y="50" width="35" height="1" uuid="cb05ea60-5a66-4f94-ae67-1adea533ec56"/>
+			</line>
+			<line>
+				<reportElement x="156" y="46" width="31" height="1" uuid="681535c9-307b-431e-bbd4-31aebedc66c8"/>
+			</line>
+			<line>
+				<reportElement x="381" y="46" width="29" height="1" uuid="1044478d-796e-4e0b-8101-0b8b55588434"/>
+			</line>
+			<line>
+				<reportElement x="160" y="42" width="27" height="1" uuid="479e5eb2-1236-49fa-a9bf-281958564120"/>
+			</line>
+			<line>
+				<reportElement x="382" y="42" width="24" height="1" uuid="7a64dff8-3661-4360-b50e-a04968d3ab4c"/>
+			</line>
+			<line>
+				<reportElement x="165" y="38" width="22" height="1" uuid="7f227a59-4229-4aa3-904b-1fb8ff8b00a1"/>
+			</line>
+			<line>
+				<reportElement x="381" y="38" width="20" height="1" uuid="1375c509-66f9-4486-8c79-8135907d6a68"/>
+			</line>
+			<line>
+				<reportElement x="168" y="34" width="226" height="1" uuid="ff03db17-0e0e-45f5-a7ee-4d6e219bfd79"/>
+			</line>
+			<line>
+				<reportElement x="171" y="30" width="220" height="1" uuid="e0881e18-1ed3-405d-952a-2c60c6d35712"/>
+			</line>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="152" splitType="Stretch">
+			<staticText>
+				<reportElement x="51" y="0" width="128" height="20" uuid="cfed1401-95b9-4249-b100-f3c80dc0b83e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[This is to certify that Mr:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="185" y="14" width="356" height="1" uuid="8878b6a6-f522-47b9-ab25-6044e3a9ab28"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="20" width="34" height="20" uuid="ed9af554-0c7e-4d00-845c-a6b6ce792167"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[S/o:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="41" y="35" width="260" height="1" uuid="6098409d-33f1-4097-a959-217afe521614"/>
+			</line>
+			<staticText>
+				<reportElement x="305" y="20" width="50" height="20" uuid="d7384be0-59de-4092-be1a-8659747a2002"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[by caste:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="365" y="34" width="176" height="1" uuid="ff01d6a0-07f8-4355-bb5a-ae9358dce9f5"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="42" width="100" height="20" uuid="7713ef59-5f8d-4419-a5a3-07fd48802504"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[R/o House No#]]></text>
+			</staticText>
+			<line>
+				<reportElement x="108" y="55" width="433" height="1" uuid="eb43fd90-fc74-4838-ac78-70f7f15472c6"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="63" width="53" height="20" uuid="ca4cda8a-c435-490f-8504-d1a2802b40e4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Mohalla:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="65" y="76" width="171" height="1" uuid="c36b2a79-91d5-4653-8d8b-e291a3bf8f42"/>
+			</line>
+			<staticText>
+				<reportElement x="239" y="62" width="62" height="20" uuid="9e35ae47-66f7-47e7-bac6-42a8a35786d0"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Cnic No#]]></text>
+			</staticText>
+			<line>
+				<reportElement x="299" y="74" width="166" height="1" uuid="9f37d8a0-9e35-4a8e-9e5b-54a15b60b72e"/>
+			</line>
+			<staticText>
+				<reportElement x="465" y="63" width="76" height="20" uuid="2a76a35e-8ee2-4c9d-9a8c-8e924c71c5e1"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11"/>
+				</textElement>
+				<text><![CDATA[Talka Gambhat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="85" width="100" height="20" uuid="24231a5b-1509-4022-9c5a-7b8f0a1be3dc"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Distt:Khairpur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="107" width="352" height="20" uuid="28f23d6f-6ac2-4238-9bc8-6bbd56498f41"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[This certificate have been issued on the recommendation by Mr:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="428" y="118" width="112" height="1" uuid="fb676c16-388f-4269-80eb-2e56b5a581f3"/>
+			</line>
+			<staticText>
+				<reportElement x="14" y="127" width="414" height="20" uuid="01556daf-60d4-4377-9405-d90dabdbde79"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Councillor M.C Gambat only valid for Domicile / Passport / NIC Purpose.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="187" y="0" width="351" height="20" uuid="a95433b5-5607-4a88-b245-ada513c66c3c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="22" width="252" height="20" uuid="25f825ce-05af-486a-b6b9-7c03f29ce224"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Father Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="20" width="173" height="20" uuid="f221a2e0-00a8-4770-bc23-b5bcf5d79467"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Caste}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="71" y="62" width="165" height="20" uuid="c28a7869-6dff-44ec-9a16-ffab35cf088d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mohalla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="305" y="60" width="145" height="20" uuid="20fcbe85-7c28-4ef9-887e-6734e346858b"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cnic No}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="105" width="100" height="20" uuid="0dedc256-bc32-4ffe-8aa4-7660c658c379"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Recomended By}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="42" width="427" height="20" uuid="c0c1974e-6d04-4dee-ada4-fbac248098d4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{house_no}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="382" y="20" width="119" height="17" uuid="837ae36d-82ba-401f-b1e9-a24fae1eb56d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Chief Muncipal Officer]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="37" width="175" height="20" uuid="ea20a4cd-1cc7-474e-b4b6-2154c9d492bf"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Municipal Committee Gombat]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

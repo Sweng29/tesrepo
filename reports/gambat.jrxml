@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="550" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bd4cdba8-8f0f-4445-859a-13291aa3f943">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Heading 1" fontSize="16" isBold="true"/>
+	<parameter name="certificateId" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT `certificate_id`, no_mcg AS 'No MCG' , DATE(`cdate`) AS 'Date' ,
+`muncipal_committee` AS 'Muncipal Committee' , 
+`muncipal_consisting` AS 'Muncipal Consisting' , 
+`consisting_description` AS 'Description' , mohalla AS 'Mohalla' ,
+`gambat` AS 'Gambat',tax AS 'Tax',
+`name` AS 'Name' ,
+father_name AS 'Son Of' , `caste` AS caste 
+FROM `certificate` 
+WHERE `certificate_type_id` = 'Tax Property Certificate' AND active = 1 
+AND certificate_id = $P{certificateId}]]>
+	</queryString>
+	<field name="certificate_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="No MCG" class="java.lang.String"/>
+	<field name="Date" class="java.sql.Date"/>
+	<field name="Muncipal Committee" class="java.lang.String"/>
+	<field name="Muncipal Consisting" class="java.lang.String"/>
+	<field name="Description" class="java.lang.String"/>
+	<field name="Mohalla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Gambat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tax" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Son Of" class="java.lang.String"/>
+	<field name="caste" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="510" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="510" uuid="ca328999-2ab3-4070-aef5-bf4e960ba7a8"/>
+				<graphicElement>
+					<pen lineWidth="2.5" lineStyle="Solid"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="10">
+				<reportElement x="5" y="11" width="544" height="492" uuid="1465acac-7f21-43e1-8283-f86a3adf6d12"/>
+				<graphicElement>
+					<pen lineWidth="2.5"/>
+				</graphicElement>
+			</rectangle>
+		</band>
+	</background>
+	<title>
+		<band height="118" splitType="Stretch">
+			<staticText>
+				<reportElement x="147" y="23" width="367" height="30" uuid="6db9f9a9-6a0f-46cc-9212-7047fd2e3a56"/>
+				<textElement textAlignment="Center">
+					<font fontName="Engravers MT" size="18" isBold="false" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[OFFICE OF THE CHAIRMAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="53" width="396" height="30" uuid="5da19644-8d18-4e2e-9878-1036bb901220"/>
+				<textElement textAlignment="Center">
+					<font fontName="Engravers MT" size="18" isBold="false" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[MUNCIPAL COMITTEE Gambat]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="88" width="348" height="30" uuid="897d0599-7278-4389-9be8-8e91702d498b"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Engravers MT" size="16" isBold="true" isItalic="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Tax Property Certificate]]></text>
+			</staticText>
+			<image>
+				<reportElement x="11" y="25" width="92" height="93" uuid="6912a33d-6cfd-462f-8874-d7368580f0a9"/>
+				<imageExpression><![CDATA["D:\\Gambat\\MCGambat\\src\\reports\\report-logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement x="11" y="14" width="69" height="20" uuid="452fcef1-2884-43c6-b4b9-f270a399d845"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO.MCG :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="14" width="51" height="20" uuid="a70bf3bd-c762-4ef4-9016-0e805e467259"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="450" y="30" width="87" height="1" uuid="de605bdb-6256-4b43-9217-5a82b04efa20"/>
+			</line>
+			<line>
+				<reportElement x="80" y="29" width="116" height="1" uuid="33b87e0a-a4d7-4630-8b5d-d12dd4ff70a7"/>
+			</line>
+			<textField>
+				<reportElement x="80" y="14" width="100" height="20" uuid="c23f3c3e-1982-49d9-a615-d38c50cea6dd"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{No MCG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="449" y="14" width="88" height="20" uuid="9d872a08-de82-4c11-9693-3d9c3d7d6db1"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="230" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="13" width="365" height="20" uuid="426e91a8-8ecc-4f9d-b599-9aa32c65fbd1"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[This is to Certify that Property bearing Muncipal  Comittee No :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="450" y="32" width="87" height="1" uuid="39416388-2946-4b77-ab2a-d4cb8d21793a"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="43" width="92" height="20" uuid="ea398e80-d99a-44bf-a718-e4455f0759f2"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Consisting of :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="103" y="62" width="153" height="1" uuid="8a627fb3-7d4f-4317-81b7-7964ab36959a"/>
+			</line>
+			<staticText>
+				<reportElement x="268" y="43" width="187" height="20" uuid="cf3c8888-417d-416f-9e5e-3c278b507df1"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[House/Plot/Ware/Otaque/Shop :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="455" y="62" width="82" height="1" uuid="3e652236-d087-4fc2-9b93-1d364296984d"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="74" width="56" height="20" uuid="6fa1c352-f970-4904-9be8-2175c28946c5"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Mohalla :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="67" y="93" width="416" height="1" uuid="c1478095-d0ab-480a-8e93-c5b8c0148f44"/>
+			</line>
+			<staticText>
+				<reportElement x="483" y="74" width="54" height="20" uuid="d417df11-8b96-42af-900b-9c068b74025b"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Gambat]]></text>
+			</staticText>
+			<line>
+				<reportElement x="11" y="123" width="345" height="1" uuid="5a7e8563-0042-4df5-9493-07e9dc632a84"/>
+			</line>
+			<staticText>
+				<reportElement x="369" y="103" width="180" height="20" uuid="a53e564e-1497-4842-a5e7-6e2c8d44ec63"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Municipal Committee Gambat]]></text>
+			</staticText>
+			<line>
+				<reportElement x="369" y="152" width="168" height="1" uuid="a4eef29d-e75f-41a3-894c-793f2b31164d"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="133" width="358" height="20" uuid="354a671d-604a-4791-bd43-410ee9a2bf56"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Taluka Gambat, Stand entered in the Drainage/House/Light]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="11" y="163" width="117" height="20" uuid="e18dc45e-d75b-4c75-ba86-f824237b5585"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[Tax In the Name of ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="163" width="89" height="20" uuid="ae95948a-601e-4cf0-938e-6f0959e3a28c"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mr/Miss/Mrs :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="217" y="183" width="320" height="1" uuid="068e7cc9-fb50-47b9-a765-98e6d1b061f4"/>
+			</line>
+			<staticText>
+				<reportElement x="11" y="196" width="81" height="20" uuid="c7a0cc15-f825-46e3-8e6c-d0bd3f5c5356"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<text><![CDATA[S/o,D/o/W/o :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="92" y="215" width="307" height="1" uuid="02f8d7bf-0633-4faa-a9df-01a70e18f74b"/>
+			</line>
+			<staticText>
+				<reportElement x="407" y="196" width="60" height="20" uuid="733b99a8-6fbe-4156-a781-0af0a5ed6ffe"/>
+				<textElement>
+					<font size="13" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Bycast :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="468" y="214" width="69" height="1" uuid="e34330e0-4a0e-4e2c-bc62-2814743ff1e8"/>
+			</line>
+			<textField>
+				<reportElement x="450" y="13" width="87" height="20" uuid="d8a8b9e0-ea15-4744-9b87-d075c9ced72b"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Muncipal Committee}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="103" y="43" width="153" height="20" uuid="6366c6c8-ef57-497a-b393-050f27cc1139"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Muncipal Consisting}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="43" width="82" height="20" uuid="c244fd5d-dd57-43b6-816c-dd2a990b5762"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="73" width="416" height="20" uuid="9dbd398d-eb57-4333-a7b1-7712a10a3bdb"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Mohalla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="11" y="104" width="345" height="20" uuid="80001318-90b1-4b52-bdc9-2763dd052809"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Gambat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="132" width="168" height="20" uuid="6b271722-3b8b-470e-8956-0072c08beae0"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Tax}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="164" width="320" height="20" uuid="b5283d9b-820e-4ea3-82a9-3dfb6baf3ad0"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="196" width="298" height="20" uuid="2c441493-45c1-47d0-b945-a81e7701552b"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Son Of}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="196" width="69" height="20" uuid="55cbff05-f7a9-44a7-bb20-5eaca7d83c3b"/>
+				<textElement>
+					<font size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{caste}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<pageFooter>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="422" y="37" width="133" height="20" uuid="6d03df13-d50e-4232-aed8-1a39d13edb87"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Chairman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="57" width="199" height="20" uuid="02043aee-8b90-4a42-98cf-3265b434308e"/>
+				<textElement>
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipal Committee Gambat]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
